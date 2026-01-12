@@ -6,10 +6,7 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.servers.Server;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @OpenAPIDefinition(servers = {@Server(url = "/", description = "Default server URL")})
@@ -19,7 +16,7 @@ public interface ProductController {
     ResponseEntity<Product> registerProduct(@RequestBody Product product);
 
     @GetMapping("/get/{id}")
-    ResponseEntity<Product> getProductById(@RequestParam Long id);
+    ResponseEntity<Product> getProductById(@PathVariable Long id);
 
     @GetMapping("/getAll")
     ResponseEntity<List<Product>> getAllProdutcs();
