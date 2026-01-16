@@ -1,6 +1,6 @@
 package com.gabs.dio.requests_orders.service.impl;
 
-import com.gabs.dio.requests_orders.faignClient.ProductsFeignClient;
+import com.gabs.dio.requests_orders.feignClient.ProductsFeignClient;
 import com.gabs.dio.requests_orders.model.dto.OrdersDTO;
 import com.gabs.dio.requests_orders.model.entity.Orders;
 import com.gabs.dio.requests_orders.model.entity.Product;

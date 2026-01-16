@@ -1,4 +1,4 @@
-package com.gabs.dio.requests_orders.faignClient;
+package com.gabs.dio.requests_orders.feignClient;
 
 import com.gabs.dio.requests_orders.model.entity.Product;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@Component
-@FeignClient(name = "products-catalog")
+
+@FeignClient(name = "products-catalog", path = "/produtos" )
 public interface ProductsFeignClient{
 
     @GetMapping(value = "/getAll")
     ResponseEntity<List<Product>> getList();
 
     @GetMapping(value = "/get/{id}")
-    ResponseEntity<Product> getProduct(@PathVariable Long id);
+    ResponseEntity<Product> getProduct(@PathVariable("id") Long id);
 }
