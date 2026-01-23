@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,8 +28,9 @@ public class ProductControllerImpl implements ProductController {
     }
 
     @Override
-    public ResponseEntity<Product> registerProduct(Product product) {
+    public ResponseEntity<Product> registerProduct(@RequestBody Product product) {
         logger.info(new StringBuilder().append("Port: ").append(env.getProperty("local.server.port")).toString());
+        logger.info("Product: " + product.getProductName());
         return  new ResponseEntity<Product>(service.registerProduct(product), HttpStatus.CREATED);
     }
 
