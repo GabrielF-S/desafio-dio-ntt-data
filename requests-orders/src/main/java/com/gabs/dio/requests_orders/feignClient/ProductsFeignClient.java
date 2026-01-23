@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 
-@FeignClient(name = "products-catalog", path = "/produtos" )
+@FeignClient("products-catalog")
 public interface ProductsFeignClient{
 
-    @GetMapping(value = "/getAll")
+    @GetMapping(value = "/produtos/getAll")
     ResponseEntity<List<Product>> getList();
 
-    @GetMapping(value = "/get/{id}")
+    @GetMapping(value = "/produtos/get/{id}")
     ResponseEntity<Product> getProduct(@PathVariable("id") Long id);
 }
